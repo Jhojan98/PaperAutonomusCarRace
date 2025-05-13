@@ -1,0 +1,33 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.synctex(busy)
+
+# Build artifacts
+*.pdf
+# Si quieres incluir el PDF en el repositorio, comenta o elimina la línea de arriba.
+
+# Minted package cache
+_minted*
+
+# Other common temporary/backup files
+*~
+.*.swp
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code specific
+.vscode/

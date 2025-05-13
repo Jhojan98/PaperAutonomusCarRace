@@ -1,0 +1,53 @@
+%------------------
+% PAPER TEMPLATE
+%------------------
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts % Enable \thanks
+\usepackage{cite} % Numeric citations
+\usepackage[cmex10]{amsmath,amssymb} % Math symbols
+\usepackage{graphicx} % Include figures
+\usepackage{hyperref} % Clickable links
+\usepackage{bookmark} % Fixes rerunfilecheck outline warnings
+\usepackage{enumitem} % Customized lists
+\usepackage{tikz} % Diagrams and drawings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{\LARGE \bf Your Paper Title:\ Concise, Descriptive, Memorable }
+\author{\IEEEauthorblockN{Jhojan Stiven Aragon Ramirez}
+\IEEEauthorblockA{Dept. of Computer Engineering\\
+Universidad Distrital Francisco Jos\'e de Caldas\\
+Email: jhsaragonr@udistrital.edu.co}
+\and
+\IEEEauthorblockN{Kevin Emmanuel Tovar Lizarazo}
+\IEEEauthorblockA{Fundamentos de ciencias y sistemas\\
+Universidad Distrital Francisco Jos\'e de Caldas\\
+Email: ketovarl@udistrital.edu.co}
+\thanks{Funded by \emph{Your Funding Source} under grant No. 12345.}}
+\begin{document}
+\maketitle
+% %% ------------ Abstract ------------
+\input{Abstract}
+
+%% ------------ Keywords ------------
+% \begin{IEEEkeywords}
+% Project guidelines, IEEE LaTeX, engineering education, templates
+% \end{IEEEkeywords}
+%% ------------ Sections ------------
+% \section{Introduction}
+% 1 page. Context, challenges, prior work (cite using [1], [2]).
+\input{introduction}
+% \section{Methods and Materials}
+% 1--2 pages. Design choices, architecture diagrams (\includegraphics{}), algorithm
+\input{Results}
+\input{Methods and Materials}
+% Tables (\begin{table}), Figures (\begin{figure}), comparisons, statistical charts
+\input{Conclusions}
+% 1-2 paragraphs. Summarize achievements, limitations, future work.
+% \section*{Acknowledgment}
+\input{Acknowledgment}
+% Optional: funding, collaborators.
+%% ------------ References ------------
+% \bibliographystyle{IEEEtran}
+% \bibliography{bibliography}
+\end{document}
