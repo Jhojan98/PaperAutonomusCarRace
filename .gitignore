@@ -16,8 +16,7 @@
 
 
 # Build artifacts
-*.pdf
-# Si quieres incluir el PDF en el repositorio, comenta o elimina la línea de arriba.
+
 
 # Minted package cache
 _minted*
