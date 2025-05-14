@@ -13,6 +13,8 @@
 *.xdv
 *.synctex(busy)
 
+
+
 # Build artifacts
 *.pdf
 # Si quieres incluir el PDF en el repositorio, comenta o elimina la línea de arriba.
@@ -31,3 +33,8 @@ Thumbs.db
 
 # VS Code specific
 .vscode/
+
+#adicional
+*.tex:Zone.Identifier
+*.bib:Zone.Identifier
+
