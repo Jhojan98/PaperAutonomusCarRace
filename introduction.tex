@@ -1,28 +1,21 @@
 \section{Introduction}
 % 1 page. Context, challenges, prior work (cite using [1], [2]).
-En este trabajo, se presenta un agente de aprendizaje por refuerzo 
-profundo (DRL) diseñado para la detección de minas terrestres en un 
-entorno simulado. La detección de minas es un desafío crítico en la 
-ingeniería y la seguridad, ya que estas representan una amenaza 
-significativa para la vida humana y la infraestructura. 
-La combinación de tecnologías avanzadas, como el aprendizaje a
-utomático y los sensores LiDAR, ofrece una solución prometedora 
-para abordar este problema.
 
-To develop and test our deep reinforcement learning (DRL) agent, we use the Gymnasium library, specifically the CarRacing environment \cite{gymnasium2023}. This library provides a simulated environment that is both flexible and widely used in the research community. The CarRacing environment allows us to create realistic scenarios for training and evaluating our agent. By using this tool, we can focus on improving the agent's performance without the need for a physical setup, saving time and resources.
+Autonomous control of vehicles has become a benchmark problem in reinforcement learning, but reproducing real‐world driving in the laboratory often requires complex simulators or physical testbeds. In this project, we simplify the task by focusing on the Gymnasium CarRacing-v0 environment \cite{gymnasium2023}, where a planar racing car must follow a procedurally generated track using only on‐board sensors. The initial problem we address is thus configuring a virtual racing car to drive through a circuit—rather than dealing with real vehicles or full 3D simulators—so that we can concentrate on core challenges of perception, action selection, and reward design in a lightweight Box2D physics setting \cite{gymnasium2023}. By adopting CarRacing-v0, which already handles chassis joints, tire friction, and steering dynamics internally, we avoid reinventing vehicle dynamics and can direct our efforts toward improving the learning algorithm itself.
 
-We rely on the Gymnasium CarRacing environment \cite{gymnasium2023}, which uses the Box2D library to provide all vehicle dynamics out of the box.
+In particular, several recent works focus on the Gymnasium CarRacing-v0 environment, providing step-by-step DQN implementations and baseline performance metrics that serve as a foundation for further improvements \cite{perod2019}. By analyzing these implementations—including the detailed project report by Perod et al. \cite{perod2019}—we identified opportunities to enhance observation processing and reward shaping.
 
-Box2D solves the planar rigid-body equations  
+
+In this work, we present a DQN-based agent for the CarRacing environment in the Gymnasium library \cite{gymnasium2023}. This environment uses the Box2D physics engine to solve the planar rigid–body equations
 \[
-m\dot v = \sum F,\quad I\dot \omega = \sum \tau
-\]  
-and handles wheel chassis joints, tire friction and steering internally.
+m\dot v = \sum F,\quad I\dot \omega = \sum \tau,
+\]
+and handles chassis joints, tire friction, and steering internally. By building on this existing model, we avoid implementing vehicle dynamics from scratch and focus instead on the learning algorithm.
 
-By using this built-in model, we avoid manual implementation of physics and focus on training our DRL agent efficiently.
+To improve the agent’s perception, we augment the standard RGB input with a simulated 14-ray LiDAR sensor mounted at the front of the vehicle. The LiDAR readings provide a vector of distances to nearby obstacles, giving the agent direct information about track geometry before it appears in the camera view. Inspired by prior work on obstacle detection and autonomous driving \cite{Estrada2021}, our agent processes both image frames and LiDAR data through parallel neural network branches that merge before the Q-value output layer.
 
-Recent advancements in reinforcement learning have demonstrated the potential of feedback linearization techniques for controlling autonomous vehicles in complex environments. For instance, \cite{feedback_linearization2021} explores the use of reinforcement learning to design a linearizing controller for car racing dynamics, enabling efficient path planning and trajectory tracking. Inspired by these methods, our work adapts similar principles to address the unique challenges of landmine detection in simulated environments.
+We evaluate our approach by training the agent on a set of standard CarRacing tracks and then testing it on unseen layouts. Our results indicate that adding LiDAR feedback leads to faster convergence during training and more stable driving behavior on new tracks. This suggests that combining visual and range‐based observations can help DQN agents generalize better in driving tasks.
 
+This work is presented as a small university research project in which we will apply concepts seen in class to a practical driving task. We will use ideas from cybernetics to understand how the car can sense and correct its motion, feedback loops to adjust steering and speed based on the track ahead, and control agents to model the decision maker that chooses actions at each time step. Our main contribution is to build a DQN agent that combines image input and a simulated 14‐ray LiDAR sensor, showing that this multimodal approach helps the car learn faster and drive more smoothly on new tracks. We also design a hybrid reward function that balances speed and staying centered on the road, and we release all code and test tracks to support reproducibility.
 
-
-
+The rest of the document is organized as follows. In Section Methods and Materials we explain the environment, the network architecture, and how we simulate the LiDAR rays. In Section Results we report training curves, evaluation scores on unseen tracks, and qualitative driving examples. Also we discuss how cybernetic principles and feedback loops influenced our design choices, and we compare our results to baseline DQN implementations. Finally, in Section conclusiones we summarize our findings and suggest future directions for improving control agents in lightweight driving simulators.
