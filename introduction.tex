@@ -11,6 +11,16 @@ para abordar este problema.
 
 To develop and test our deep reinforcement learning (DRL) agent, we use the Gymnasium library, specifically the CarRacing environment \cite{gymnasium2023}. This library provides a simulated environment that is both flexible and widely used in the research community. The CarRacing environment allows us to create realistic scenarios for training and evaluating our agent. By using this tool, we can focus on improving the agent's performance without the need for a physical setup, saving time and resources.
 
+We rely on the Gymnasium CarRacing environment \cite{gymnasium2023}, which uses the Box2D library to provide all vehicle dynamics out of the box.
+
+Box2D solves the planar rigid-body equations  
+\[
+m\dot v = \sum F,\quad I\dot \omega = \sum \tau
+\]  
+and handles wheel chassis joints, tire friction and steering internally.
+
+By using this built-in model, we avoid manual implementation of physics and focus on training our DRL agent efficiently.
+
 Recent advancements in reinforcement learning have demonstrated the potential of feedback linearization techniques for controlling autonomous vehicles in complex environments. For instance, \cite{feedback_linearization2021} explores the use of reinforcement learning to design a linearizing controller for car racing dynamics, enabling efficient path planning and trajectory tracking. Inspired by these methods, our work adapts similar principles to address the unique challenges of landmine detection in simulated environments.
 
 
