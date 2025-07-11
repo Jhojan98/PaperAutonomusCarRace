@@ -1,16 +1,21 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts % Enable \thanks
 \usepackage{cite} % Numeric citations
-\usepackage[cmex10]{amsmath,amssymb} % Math symbols
+\usepackage[cmex10]{amsmath} % Math symbols
+\usepackage{amssymb} % Math symbols
 \usepackage{graphicx} % Include figures
 \usepackage{hyperref} % Clickable links
 \usepackage{bookmark} % Fixes rerunfilecheck outline warnings
 \usepackage{enumitem} % Customized lists
 \usepackage{tikz} % Diagrams and drawings
+\usepackage{tabularx} % Extended tabular environment
+\usepackage{array} % Enhanced array and tabular
+\usepackage{ragged2e} % Better ragged text commands
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\title{\LARGE \bf Autonomus Robot for the Detection of Landmines in a Simulated Environment}
+\title{\LARGE \bf Autonomous Driving with Deep Reinforcement Learning and
+ Simulated LiDAR in CarRacing-v}
 \author{\IEEEauthorblockN{Jhojan Stiven Aragon Ramirez}
 \IEEEauthorblockA{Dept. of Computer Engineering\\
 Universidad Distrital Francisco Jos\'e de Caldas\\
@@ -45,9 +50,6 @@ Email: ketovarl@udistrital.edu.co}
 \input{Acknowledgment}
 % Optional: funding, collaborators.
 %% ------------ References ------------
-% Example citation to avoid "no \citation commands" error
-
-\section{bibliography}
 \bibliographystyle{IEEEtran}
 \bibliography{bibliography}
 

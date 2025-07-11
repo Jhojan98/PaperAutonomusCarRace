@@ -1,4 +1,8 @@
-\section{abstract}
-%\begin{abstract}
-% % Three sentences: (i) Context, (ii) Problem + Proposed solution, (iii) Key results
-%\end{abstract}
+\begin{abstract}
+Deep reinforcement learning has shown great promise for autonomous driving in simulated environments, yet training agents with high-dimensional image inputs often incurs long convergence times and unstable behavior. To address this, we propose a Deep Q-Network agent for the Gymnasium CarRacing-v3 task that fuses standard 96×96 RGB observations with a 14-ray simulated LiDAR input via parallel network branches, coupled through a hybrid reward function that balances lap completion speed, track coverage, and off-track penalties. Experiments on procedurally generated test tracks demonstrate that our LiDAR-enhanced agent consistently reaches an average return above 900 points 30\% faster than an image-only baseline and maintains over an 80\% success rate in completing full laps.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Deep reinforcement learning, Deep Q-Network, CarRacing-v3, Gymnasium, LiDAR sensing, Multimodal perception
+\end{IEEEkeywords}
+
